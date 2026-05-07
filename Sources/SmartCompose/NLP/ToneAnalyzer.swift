@@ -102,7 +102,7 @@ actor ToneAnalyzer {
 
         // 7. Passive voice detection (approximation)
         let passiveIndicators = ["was", "were", "been", "being", "is", "are"]
-        let pastParticiples = tags.filter { $0.tag == .verb }
+        _ = tags.filter { $0.tag == .verb }
         let passiveCount = lowerWords.filter { passiveIndicators.contains($0) }.count
         if passiveCount > 2 {
             scores[.formal, default: 0] += 1.0
@@ -112,7 +112,7 @@ actor ToneAnalyzer {
 
         // 8. Exclamation/question frequency
         let exclamationCount = text.filter { $0 == "!" }.count
-        let questionCount = text.filter { $0 == "?" }.count
+        _ = text.filter { $0 == "?" }.count
         if exclamationCount > 2 {
             scores[.informal, default: 0] += 1.5
             scores[.creative, default: 0] += 1.0

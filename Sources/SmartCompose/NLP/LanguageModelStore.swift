@@ -34,6 +34,12 @@ actor LanguageModelStore {
     private var unigramsURL: URL { storageDirectory.appending(path: "unigrams.json") }
 
     private init() {
+        Task {
+            await initialize()
+        }
+    }
+
+    private func initialize() {
         loadFromDisk()
         if totalTokens == 0 {
             seedWithDefaultCorpus()

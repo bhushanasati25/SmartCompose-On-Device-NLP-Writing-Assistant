@@ -1,7 +1,7 @@
 import Foundation
 
 /// Represents a user-created writing document persisted to the local file system.
-struct Document: Identifiable, Codable, Equatable {
+struct Document: Identifiable, Codable, Hashable {
     let id: UUID
     var title: String
     var content: String

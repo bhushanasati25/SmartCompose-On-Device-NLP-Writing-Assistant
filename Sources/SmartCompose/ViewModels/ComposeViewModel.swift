@@ -245,10 +245,4 @@ class ComposeViewModel {
         Task {
             await languageModel.train(on: text)
         }
-    }
-
-    deinit {
-        predictionTask?.cancel()
-        analysisTask?.cancel()
-    }
-}
+    }}

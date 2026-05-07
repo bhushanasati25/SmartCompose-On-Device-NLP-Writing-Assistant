@@ -1,10 +1,15 @@
 import SwiftUI
 
 /// Root view with tab-based navigation for Documents, Compose, and Settings.
+@MainActor
 struct ContentView: View {
 
     @State private var selectedTab: Tab = .documents
-    @State private var documentListVM = DocumentListViewModel()
+    @State private var documentListVM: DocumentListViewModel
+
+    init() {
+        _documentListVM = State(wrappedValue: DocumentListViewModel())
+    }
     @State private var animateTab = false
 
     enum Tab: String {

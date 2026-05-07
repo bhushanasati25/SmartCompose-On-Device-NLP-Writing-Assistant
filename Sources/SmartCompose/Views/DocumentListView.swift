@@ -1,11 +1,11 @@
 import SwiftUI
 
 /// Document browser with search, sort, and swipe-to-delete functionality.
+@MainActor
 struct DocumentListView: View {
 
     @Bindable var viewModel: DocumentListViewModel
     @State private var selectedDocument: Document?
-    @State private var showingSortPicker = false
     @State private var showingSortPicker = false
     @State private var showingTemplatePicker = false
     @State private var animateSparkles = false

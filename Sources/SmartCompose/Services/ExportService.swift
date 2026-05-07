@@ -87,12 +87,6 @@ final class ExportService {
             // Draw body text with pagination
             let bodyStartY = margin + 85
             let availableHeight = pageHeight - margin - bodyStartY
-            let bodyRect = CGRect(
-                x: margin,
-                y: bodyStartY,
-                width: textRect.width,
-                height: availableHeight
-            )
 
             // Use NSString for drawing with text container
             let framesetter = CTFramesetterCreateWithAttributedString(bodyString)
