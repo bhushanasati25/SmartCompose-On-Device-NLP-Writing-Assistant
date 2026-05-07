@@ -1,0 +1,27 @@
+name: SmartCompose
+options:
+  bundleIdPrefix: com.bhushanasati
+  deploymentTarget:
+    iOS: 17.0
+targets:
+  SmartCompose:
+    type: application
+    platform: iOS
+    deploymentTarget: 17.0
+    sources:
+      - path: Sources/SmartCompose
+    settings:
+      base:
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        SWIFT_VERSION: 5.0
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_STYLE: Automatic
+  SmartComposeTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: 17.0
+    sources: [Tests/SmartComposeTests]
+    dependencies:
+      - target: SmartCompose
