@@ -43,6 +43,16 @@ struct Document: Identifiable, Codable, Hashable {
         formatter.unitsStyle = .abbreviated
         return formatter.localizedString(for: modifiedAt, relativeTo: Date())
     }
+
+    // MARK: - Equatable & Hashable Conformance
+
+    static func == (lhs: Document, rhs: Document) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 // MARK: - File-System Persistence
