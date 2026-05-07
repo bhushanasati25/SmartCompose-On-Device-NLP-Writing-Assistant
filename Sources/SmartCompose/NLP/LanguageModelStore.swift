@@ -118,6 +118,7 @@ actor LanguageModelStore {
 
     /// Checks whether the model has any data for a given context.
     func hasContext(for words: [String]) -> Bool {
+        initializeIfNeeded()
         let lowered = words.map { $0.lowercased() }
 
         if lowered.count >= 2 {
@@ -134,6 +135,7 @@ actor LanguageModelStore {
 
     /// Records that the user accepted a prediction, reinforcing the n-gram path.
     func reinforce(context: [String], acceptedWord: String) {
+        initializeIfNeeded()
         let lowered = context.map { $0.lowercased() }
         let word = acceptedWord.lowercased()
 
