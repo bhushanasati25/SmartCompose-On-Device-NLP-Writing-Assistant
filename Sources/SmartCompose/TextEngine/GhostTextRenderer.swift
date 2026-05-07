@@ -61,7 +61,7 @@ final class GhostTextRenderer {
         )
 
         // Insert at cursor position
-        guard let textStorage = textView.textStorage as? NSTextStorage else { return }
+        let textStorage = textView.textStorage
 
         textStorage.beginEditing()
         textStorage.insert(ghostString, at: cursorPosition)
@@ -114,7 +114,7 @@ final class GhostTextRenderer {
     /// Returns the accepted text string, or nil if no ghost text was present.
     func acceptGhostText(in textView: UITextView) -> String? {
         guard isShowingGhostText,
-              let ghostText = currentGhostText else { return nil }
+              let acceptedText = currentGhostText else { return nil }
 
         let textStorage = textView.textStorage
 
@@ -149,11 +149,10 @@ final class GhostTextRenderer {
         }
 
         isShowingGhostText = false
-        let accepted = currentGhostText
         currentGhostText = nil
         ghostTextLocation = nil
 
-        return accepted
+        return acceptedText
     }
 
     /// Returns the plain text content of the text view excluding any ghost text.
