@@ -1,0 +1,105 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 74739561938,
+      "run_id": 25472677727,
+      "workflow_name": "SmartCompose CI",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/bhushanasati25/SmartCompose-On-Device-NLP-Writing-Assistant/actions/runs/25472677727",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOSWPk7s8AAAARZtM10g",
+      "head_sha": "9537cbfdd82392b9ed9f6dd1b22aaac1d4a0305f",
+      "url": "https://api.github.com/repos/bhushanasati25/SmartCompose-On-Device-NLP-Writing-Assistant/actions/jobs/74739561938",
+      "html_url": "https://github.com/bhushanasati25/SmartCompose-On-Device-NLP-Writing-Assistant/actions/runs/25472677727/job/74739561938",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-05-07T02:29:49Z",
+      "started_at": "2026-05-07T02:29:52Z",
+      "completed_at": "2026-05-07T02:30:28Z",
+      "name": "Build & Test (iOS)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-07T02:29:53Z",
+          "completed_at": "2026-05-07T02:29:53Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-07T02:29:53Z",
+          "completed_at": "2026-05-07T02:29:55Z"
+        },
+        {
+          "name": "Select Xcode",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-07T02:29:55Z",
+          "completed_at": "2026-05-07T02:29:55Z"
+        },
+        {
+          "name": "Install xcodegen",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-07T02:29:55Z",
+          "completed_at": "2026-05-07T02:30:02Z"
+        },
+        {
+          "name": "Generate Xcode Project",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-07T02:30:02Z",
+          "completed_at": "2026-05-07T02:30:02Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6,
+          "started_at": "2026-05-07T02:30:02Z",
+          "completed_at": "2026-05-07T02:30:26Z"
+        },
+        {
+          "name": "Test",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-05-07T02:30:26Z",
+          "completed_at": "2026-05-07T02:30:26Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-05-07T02:30:26Z",
+          "completed_at": "2026-05-07T02:30:26Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-07T02:30:26Z",
+          "completed_at": "2026-05-07T02:30:27Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/bhushanasati25/SmartCompose-On-Device-NLP-Writing-Assistant/check-runs/74739561938",
+      "labels": [
+        "macos-14"
+      ],
+      "runner_id": 1000000436,
+      "runner_name": "GitHub Actions 1000000436",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

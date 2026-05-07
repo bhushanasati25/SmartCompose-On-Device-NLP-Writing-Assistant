@@ -5,12 +5,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var selectedTab: Tab = .documents
-    @State private var documentListVM: DocumentListViewModel
-
-    @MainActor
-    init() {
-        _documentListVM = State(wrappedValue: DocumentListViewModel())
-    }
+    @State private var documentListVM = DocumentListViewModel()
     @State private var animateTab = false
 
     enum Tab: String {

@@ -33,17 +33,19 @@ actor LanguageModelStore {
     private var bigramsURL: URL { storageDirectory.appending(path: "bigrams.json") }
     private var unigramsURL: URL { storageDirectory.appending(path: "unigrams.json") }
 
+    private var isInitialized = false
+
     private init() {
-        Task {
-            await initialize()
-        }
+        // Initialization is deferred to first use (train or predict)
     }
 
-    private func initialize() {
+    private func initializeIfNeeded() {
+        guard !isInitialized else { return }
         loadFromDisk()
         if totalTokens == 0 {
             seedWithDefaultCorpus()
         }
+        isInitialized = true
     }
 
     // MARK: - Training
@@ -56,6 +58,8 @@ actor LanguageModelStore {
             .filter { !$0.isEmpty }
 
         guard words.count >= 2 else { return }
+
+        initializeIfNeeded()
 
         // Update unigrams
         for word in words {
@@ -85,6 +89,8 @@ actor LanguageModelStore {
     /// Predicts the next word given a context of 1-2 previous words.
     /// Returns an array of (word, probability) pairs sorted by probability descending.
     func predict(context: [String], maxResults: Int = 5) -> [(word: String, probability: Double)] {
+        initializeIfNeeded()
+        
         let lowered = context.map { $0.lowercased() }
 
         // Try trigram first (most specific)
@@ -154,6 +160,7 @@ actor LanguageModelStore {
         totalTokens = 0
         seedWithDefaultCorpus()
         saveToDisk()
+        isInitialized = true
     }
 
     // MARK: - Private Helpers
