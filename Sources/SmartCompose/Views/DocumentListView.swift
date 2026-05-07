@@ -69,7 +69,7 @@ struct DocumentListView: View {
             }
             .sheet(isPresented: $showingTemplatePicker) {
                 TemplatePickerView { template in
-                    let newDoc = viewModel.createDocument()
+                    var newDoc = viewModel.createDocument()
                     newDoc.title = template.suggestedTitle
                     newDoc.content = template.content
                     selectedDocument = newDoc
